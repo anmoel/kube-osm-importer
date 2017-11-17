@@ -16,3 +16,5 @@ RUN apt-get update && \
     cmake .. && \
     make && \
     make install
+
+VOLUME /data
