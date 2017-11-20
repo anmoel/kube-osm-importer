@@ -19,6 +19,10 @@ RUN apt-get update && \
     git clone git://github.com/gravitystorm/openstreetmap-carto.git && \
     cd openstreetmap-carto && carto project.mml > mapnik.xml && scripts/get-shapefiles.py
 
+ENV PG_HOST=pgset-primary \
+    PG_PORT=5432 \
+    PG_USER=renderaccount \
+    PG_PASSWORD=password
 
 VOLUME /data
 ADD entrypoint.sh /
