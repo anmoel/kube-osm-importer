@@ -2,7 +2,7 @@ FROM ubuntu:xenial
 MAINTAINER André Möller <moeller@mecom.de>
 
 RUN apt-get update && \
-    apt-get install -y git make cmake g++ libboost-dev libboost-system-dev \
+    apt-get install -y npm git make cmake g++ libboost-dev libboost-system-dev \
         libboost-filesystem-dev libexpat1-dev zlib1g-dev libbz2-dev libpq-dev \
         libgeos-dev libgeos++-dev libproj-dev lua5.2 liblua5.2-dev && \
     mkdir ~/src && \
