@@ -2,7 +2,7 @@ FROM ubuntu:xenial
 MAINTAINER André Möller <moeller@mecom.de>
 
 RUN apt-get update && \
-    apt-get install -y npm git make cmake g++ libboost-dev libboost-system-dev \
+    apt-get install -y npm nodejs-legacy git make cmake g++ libboost-dev libboost-system-dev \
         libboost-filesystem-dev libexpat1-dev zlib1g-dev libbz2-dev libpq-dev \
         libgeos-dev libgeos++-dev libproj-dev lua5.2 liblua5.2-dev && \
     mkdir ~/src && \
@@ -14,10 +14,11 @@ RUN apt-get update && \
     libgeos-dev libgeos++-dev libproj-dev lua5.2 liblua5.2-dev && \
     mkdir build && cd build && \
     cmake .. && make && make install && \
-    npm install -g carto && \
     cd ~/src && \
     git clone git://github.com/gravitystorm/openstreetmap-carto.git && \
-    cd openstreetmap-carto && carto project.mml > mapnik.xml && scripts/get-shapefiles.py
+    cd openstreetmap-carto && \
+    npm install -g carto && \
+    scripts/get-shapefiles.py -s && carto project.mml > mapnik.xml
 
 ENV PG_HOST=pgset-primary \
     PG_PORT=5432 \
