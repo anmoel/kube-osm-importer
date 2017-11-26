@@ -14,11 +14,6 @@ RUN apt-get update && \
     libgeos-dev libgeos++-dev libproj-dev lua5.2 liblua5.2-dev && \
     mkdir build && cd build && \
     cmake .. && make && make install && \
-    cd ~/src && \
-    git clone git://github.com/gravitystorm/openstreetmap-carto.git && \
-    cd openstreetmap-carto && \
-    npm install -g carto && \
-    scripts/get-shapefiles.py -s && carto project.mml > mapnik.xml
 
 ENV PG_HOST=pgset-primary \
     PG_PORT=5432 \
