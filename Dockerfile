@@ -13,8 +13,8 @@ RUN apt-get update && \
     libboost-filesystem-dev libexpat1-dev zlib1g-dev libbz2-dev libpq-dev \
     libgeos-dev libgeos++-dev libproj-dev lua5.2 liblua5.2-dev && \
     mkdir build && cd build && \
-    cmake .. && make && make install && \cd /src && \
-    git clone git://github.com/gravitystorm/openstreetmap-carto.git
+    cmake .. && make && make install && \
+    cd /src && git clone git://github.com/gravitystorm/openstreetmap-carto.git
 
 ENV PGHOST=pgset-primary \
     PGPORT=5432 \
